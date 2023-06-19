@@ -1,0 +1,63 @@
+confluent local services connect connector load spooldir --config spooldir.json
+
+
+CREATE TABLE course
+(
+	course_id integer	 NOT NULL,
+	course_name VARCHAR ( 150 ) NOT NULL, 
+	course_descriptioon  VARCHAR ( 150 ) NOT NULL, 
+	snap_dt TIMESTAMP,
+	CONSTRAINT course_pk PRIMARY KEY (course_id)
+);
+
+INSERT INTO course (course_id, course_name, course_descriptioon, snap_dt)
+VALUES(1,'learn Java Basics', 'LEarn JAva', NOW() ); 
+
+
+select * from employee_tx;
+
+CREATE TABLE EMPLOYEE_TX
+(
+	TXN_ID integer	 NOT NULL,
+	SENDER_NM VARCHAR ( 150 ) NOT NULL, 
+	RECEIVER_NM VARCHAR ( 150 ) NOT NULL, 
+	SENDER_ACCT_NM VARCHAR ( 50 ) NOT NULL,
+	RECEIVER_ACCT_NM VARCHAR ( 50 ) NOT NULL,
+	AMNT numeric, 
+	SENDER_BNK VARCHAR ( 150 ) NOT NULL, 
+	TXN_DT TIMESTAMP,
+	CONSTRAINT employeetx_pk PRIMARY KEY (TXN_ID)
+);
+
+
+INSERT INTO EMPLOYEE_TX (
+	TXN_ID ,SENDER_NM , RECEIVER_NM , SENDER_ACCT_NM ,RECEIVER_ACCT_NM ,AMNT , SENDER_BNK , TXN_DT 
+)
+VALUES 
+( 1, 'CMPNY', 'ESAKKI', 'CMPAX122', 'ESAK123v1', 7843.23, 'RBI', NOW() )
+
+
+==========
+docker inspect \
+  -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' 7199942c7b99
+
+=============================
+employee-jdbc-source-connector-v1
+
+=====================
+"connection.url": "jdbc:postgresql//postgres-db:5432/postgres",
+
+
+jdbc:postgresql://postgres-db:5432/postgres?user=postgres&password=postgres
+jdbc:postgresql://postgres:postgres@172.28.0.2:5432/postgres
+
+
+postgres=# \conninfo
+You are connected to database "postgres" as user "postgres" via socket in "/var/run/postgresql" at port "5433".
+postgres=# ^C
+postgres=# 
+\q
+
+cd /usr/pgadmin4/venv/bin/
+readlink -v python3
+sudo ln -sfn /usr/local/bin/python3 python3

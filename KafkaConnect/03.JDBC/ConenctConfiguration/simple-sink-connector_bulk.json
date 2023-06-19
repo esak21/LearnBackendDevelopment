@@ -1,0 +1,20 @@
+{
+    "name": "simple-source-connector-bulk-v3",
+    "config": {
+        "connector.class": "io.confluent.connect.jdbc.JdbcSinkConnector",
+        "connection.url": "jdbc:postgresql://127.0.0.1:5433/postgres",
+        "connection.user": "postgres",
+        "connection.password": "postgres",
+        "dialect.name": "PostgreSqlDatabaseDialect",
+        "auto.evolve": true,
+        "auto.create": true,
+        "topics": "myapp-incr-01-course",
+        "validate.non.null": false,
+        "transforms": "InsertField, insertTS",
+        "transforms.InsertField.type": "org.apache.kafka.connect.transforms.InsertField$Value",
+        "transforms.InsertField.static.field": "MessageSource2",
+        "transforms.InsertField.static.value": "PSQL",
+        "transforms.insertTS.type": "org.apache.kafka.connect.transforms.InsertField$Value",
+        "transforms.insertTS.timestamp.field": "load_dt"
+    }
+}

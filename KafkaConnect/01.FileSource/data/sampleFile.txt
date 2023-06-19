@@ -1,0 +1,6 @@
+docker run --rm -it -v "$(pwd)":/tutorial --net=host landoop/fast-data-dev:cp3.3.0 bash
+
+docker run --rm -it -v /home/esak/2K24/LearnBackendDevelopment:/tutorial --net=host lensesio/box:latest bash 
+
+export CONFLUENT_HOME=/home/esak/2K24/dev/confluent-7.4.0
+export PATH=$PATH:$CONFLUENT_HOME/bin

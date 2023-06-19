@@ -1,0 +1,16 @@
+{
+    "name": "simple-source-connector-bulk-v1",
+    "config": {
+        "connector.class": "io.confluent.connect.jdbc.JdbcSourceConnector",
+        "connection.url": "jdbc:postgresql://127.0.0.1:5433/postgres",
+        "connection.user": "postgres",
+        "connection.password": "postgres",
+        "dialect.name": "PostgreSqlDatabaseDialect",
+        "topic.prefix": "myapp-incr-01-",
+        "mode": "bulk",
+        "table_type": "TABLE",
+        "auto.create": true,
+        "table.whitelist": "course",
+        "validate.non.null": false
+    }
+}
