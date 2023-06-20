@@ -1,0 +1,15 @@
+{
+    "name": "deb-sink-connector-bulk-v1",
+    "config": {
+        "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+        "tasks.max": "1",
+        "database.hostname": "127.0.0.1",
+        "database.port": "5433",
+        "database.user": "postgres",
+        "database.password": "postgres",
+        "database.server.name": "dbserver1",
+        "database.dbname": "sales",
+        "table.whitelist": "public.employee_txs",
+        "topic.prefix": "deb-"
+    }
+}

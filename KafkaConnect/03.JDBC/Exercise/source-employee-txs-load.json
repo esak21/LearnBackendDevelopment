@@ -1,0 +1,16 @@
+{
+    "name": "source-employee-txs-load-v1",
+    "config": {
+        "connector.class": "io.confluent.connect.jdbc.JdbcSourceConnector",
+        "connection.url": "jdbc:postgresql://127.0.0.1:5433/postgres",
+        "connection.user": "postgres",
+        "connection.password": "postgres",
+        "dialect.name": "PostgreSqlDatabaseDialect",
+        "topic.prefix": "cogesak-",
+        "mode": "bulk",
+        "table_type": "TABLE",
+        "table.whitelist": "employee_txs",
+        "timestamp.column.name": "txn_dt",
+        "validate.non.null": false
+    }
+}

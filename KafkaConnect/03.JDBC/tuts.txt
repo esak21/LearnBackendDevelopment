@@ -1,7 +1,7 @@
 confluent local services connect connector load spooldir --config spooldir.json
 
 
-CREATE TABLE course
+CREATE TABLE course_dup
 (
 	course_id integer	 NOT NULL,
 	course_name VARCHAR ( 150 ) NOT NULL, 
@@ -61,3 +61,9 @@ postgres=#
 cd /usr/pgadmin4/venv/bin/
 readlink -v python3
 sudo ln -sfn /usr/local/bin/python3 python3
+
+
+
+------------------confluent local services connect connector unload simple-source-connector-v2
+confluent local services connect connector load simpleemployee --config simple-source-connector_bulk.json 
+
