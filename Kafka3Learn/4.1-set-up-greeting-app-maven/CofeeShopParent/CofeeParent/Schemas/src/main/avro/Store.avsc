@@ -1,0 +1,15 @@
+{
+  "name": "Store",
+  "type": "record",
+  "namespace": "org.coffeeshop.domain.generated",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int"
+    },
+    {
+      "name": "address",
+      "type": "Address"
+    }
+  ]
+}
