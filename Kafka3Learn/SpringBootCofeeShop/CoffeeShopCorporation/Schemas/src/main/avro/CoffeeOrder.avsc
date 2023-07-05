@@ -1,0 +1,63 @@
+{
+  "name": "CoffeeOrder",
+  "type": "record",
+  "namespace": "org.coffeeshop.domain.generated",
+  "fields": [
+    {
+      "name": "id",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid"
+      }
+    },
+    {
+      "name": "name",
+      "type": "string"
+    },
+    {
+      "name": "nickName",
+      "type": "string",
+      "default": "",
+      "doc": "Optional field represents the nick name for the user"
+    },
+    {
+      "name": "store",
+      "type": "Store"
+    },
+    {
+      "name": "orderLineItems",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "OrderLineItem",
+          "name": "orderLineItem"
+        }
+      }
+    },
+    {
+      "name": "ordered_time",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      }
+    },
+    {
+      "name": "pick_up",
+      "type": {
+        "type": "enum",
+        "name": "PickUp",
+        "symbols": [
+          "IN_STORE",
+          "CURBSIDE"
+        ],
+        "default": "IN_STORE"
+      },
+      "default": "IN_STORE"
+    },
+    {
+      "name": "status",
+      "type": "string",
+      "default": "NEW"
+    }
+  ]
+}
