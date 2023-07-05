@@ -14,12 +14,13 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class CoffeeOrder extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 6571031298433031687L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"CoffeeOrder\",\"namespace\":\"org.coffeeshop.domain.generated\",\"fields\":[{\"name\":\"id\",\"type\":\"int\"},{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"nickName\",\"type\":\"string\",\"doc\":\"Optional Field represent the nickname of the user\",\"default\":\"\"},{\"name\":\"store\",\"type\":{\"type\":\"record\",\"name\":\"Store\",\"fields\":[{\"name\":\"id\",\"type\":\"int\"},{\"name\":\"address\",\"type\":{\"type\":\"record\",\"name\":\"Address\",\"fields\":[{\"name\":\"addressLine1\",\"type\":\"string\"},{\"name\":\"city\",\"type\":\"string\"},{\"name\":\"state_province\",\"type\":\"string\"},{\"name\":\"country\",\"type\":\"string\"},{\"name\":\"zip\",\"type\":\"string\"}]}}]}},{\"name\":\"orderLineItems\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"OrderLineItem\",\"fields\":[{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"size\",\"type\":{\"type\":\"enum\",\"name\":\"Size\",\"symbols\":[\"SMALL\",\"MEDIUM\",\"LARGE\"]}},{\"name\":\"quantity\",\"type\":\"int\"},{\"name\":\"cost\",\"type\":{\"type\":\"bytes\",\"logicalType\":\"decimal\",\"precision\":3,\"scale\":2}}]}}},{\"name\":\"ordered_time\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"status\",\"type\":\"string\"}]}");
+  private static final long serialVersionUID = -1637052361791503043L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"CoffeeOrder\",\"namespace\":\"org.coffeeshop.domain.generated\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"record\",\"name\":\"OrderId\",\"fields\":[{\"name\":\"id\",\"type\":\"int\"}]}},{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"nickName\",\"type\":\"string\",\"doc\":\"Optional Field represent the nickname of the user\",\"default\":\"\"},{\"name\":\"store\",\"type\":{\"type\":\"record\",\"name\":\"Store\",\"fields\":[{\"name\":\"id\",\"type\":\"int\"},{\"name\":\"address\",\"type\":{\"type\":\"record\",\"name\":\"Address\",\"fields\":[{\"name\":\"addressLine1\",\"type\":\"string\"},{\"name\":\"city\",\"type\":\"string\"},{\"name\":\"state_province\",\"type\":\"string\"},{\"name\":\"country\",\"type\":\"string\"},{\"name\":\"zip\",\"type\":\"string\"}]}}]}},{\"name\":\"orderLineItems\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"OrderLineItem\",\"fields\":[{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"size\",\"type\":{\"type\":\"enum\",\"name\":\"Size\",\"symbols\":[\"SMALL\",\"MEDIUM\",\"LARGE\"]}},{\"name\":\"quantity\",\"type\":\"int\"},{\"name\":\"cost\",\"type\":{\"type\":\"bytes\",\"logicalType\":\"decimal\",\"precision\":3,\"scale\":2}}]}}},{\"name\":\"ordered_data\",\"type\":{\"type\":\"int\",\"logicalType\":\"date\"}},{\"name\":\"ordered_time\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"status\",\"type\":\"string\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
 static {
+    MODEL$.addLogicalTypeConversion(new org.apache.avro.data.TimeConversions.DateConversion());
     MODEL$.addLogicalTypeConversion(new org.apache.avro.data.TimeConversions.TimestampMillisConversion());
     MODEL$.addLogicalTypeConversion(new org.apache.avro.Conversions.DecimalConversion());
   }
@@ -75,12 +76,13 @@ static {
     return DECODER.decode(b);
   }
 
-  @Deprecated public int id;
+  @Deprecated public org.coffeeshop.domain.generated.OrderId id;
   @Deprecated public java.lang.CharSequence name;
   /** Optional Field represent the nickname of the user */
   @Deprecated public java.lang.CharSequence nickName;
   @Deprecated public org.coffeeshop.domain.generated.Store store;
   @Deprecated public java.util.List<org.coffeeshop.domain.generated.OrderLineItem> orderLineItems;
+  @Deprecated public java.time.LocalDate ordered_data;
   @Deprecated public java.time.Instant ordered_time;
   @Deprecated public java.lang.CharSequence status;
 
@@ -98,15 +100,17 @@ static {
    * @param nickName Optional Field represent the nickname of the user
    * @param store The new value for store
    * @param orderLineItems The new value for orderLineItems
+   * @param ordered_data The new value for ordered_data
    * @param ordered_time The new value for ordered_time
    * @param status The new value for status
    */
-  public CoffeeOrder(java.lang.Integer id, java.lang.CharSequence name, java.lang.CharSequence nickName, org.coffeeshop.domain.generated.Store store, java.util.List<org.coffeeshop.domain.generated.OrderLineItem> orderLineItems, java.time.Instant ordered_time, java.lang.CharSequence status) {
+  public CoffeeOrder(org.coffeeshop.domain.generated.OrderId id, java.lang.CharSequence name, java.lang.CharSequence nickName, org.coffeeshop.domain.generated.Store store, java.util.List<org.coffeeshop.domain.generated.OrderLineItem> orderLineItems, java.time.LocalDate ordered_data, java.time.Instant ordered_time, java.lang.CharSequence status) {
     this.id = id;
     this.name = name;
     this.nickName = nickName;
     this.store = store;
     this.orderLineItems = orderLineItems;
+    this.ordered_data = ordered_data;
     this.ordered_time = ordered_time.truncatedTo(java.time.temporal.ChronoUnit.MILLIS);
     this.status = status;
   }
@@ -121,8 +125,9 @@ static {
     case 2: return nickName;
     case 3: return store;
     case 4: return orderLineItems;
-    case 5: return ordered_time;
-    case 6: return status;
+    case 5: return ordered_data;
+    case 6: return ordered_time;
+    case 7: return status;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -134,6 +139,7 @@ static {
       null,
       null,
       null,
+      new org.apache.avro.data.TimeConversions.DateConversion(),
       new org.apache.avro.data.TimeConversions.TimestampMillisConversion(),
       null,
       null
@@ -148,13 +154,14 @@ static {
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: id = (java.lang.Integer)value$; break;
+    case 0: id = (org.coffeeshop.domain.generated.OrderId)value$; break;
     case 1: name = (java.lang.CharSequence)value$; break;
     case 2: nickName = (java.lang.CharSequence)value$; break;
     case 3: store = (org.coffeeshop.domain.generated.Store)value$; break;
     case 4: orderLineItems = (java.util.List<org.coffeeshop.domain.generated.OrderLineItem>)value$; break;
-    case 5: ordered_time = (java.time.Instant)value$; break;
-    case 6: status = (java.lang.CharSequence)value$; break;
+    case 5: ordered_data = (java.time.LocalDate)value$; break;
+    case 6: ordered_time = (java.time.Instant)value$; break;
+    case 7: status = (java.lang.CharSequence)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -163,7 +170,7 @@ static {
    * Gets the value of the 'id' field.
    * @return The value of the 'id' field.
    */
-  public int getId() {
+  public org.coffeeshop.domain.generated.OrderId getId() {
     return id;
   }
 
@@ -172,7 +179,7 @@ static {
    * Sets the value of the 'id' field.
    * @param value the value to set.
    */
-  public void setId(int value) {
+  public void setId(org.coffeeshop.domain.generated.OrderId value) {
     this.id = value;
   }
 
@@ -243,6 +250,23 @@ static {
    */
   public void setOrderLineItems(java.util.List<org.coffeeshop.domain.generated.OrderLineItem> value) {
     this.orderLineItems = value;
+  }
+
+  /**
+   * Gets the value of the 'ordered_data' field.
+   * @return The value of the 'ordered_data' field.
+   */
+  public java.time.LocalDate getOrderedData() {
+    return ordered_data;
+  }
+
+
+  /**
+   * Sets the value of the 'ordered_data' field.
+   * @param value the value to set.
+   */
+  public void setOrderedData(java.time.LocalDate value) {
+    this.ordered_data = value;
   }
 
   /**
@@ -320,13 +344,15 @@ static {
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<CoffeeOrder>
     implements org.apache.avro.data.RecordBuilder<CoffeeOrder> {
 
-    private int id;
+    private org.coffeeshop.domain.generated.OrderId id;
+    private org.coffeeshop.domain.generated.OrderId.Builder idBuilder;
     private java.lang.CharSequence name;
     /** Optional Field represent the nickname of the user */
     private java.lang.CharSequence nickName;
     private org.coffeeshop.domain.generated.Store store;
     private org.coffeeshop.domain.generated.Store.Builder storeBuilder;
     private java.util.List<org.coffeeshop.domain.generated.OrderLineItem> orderLineItems;
+    private java.time.LocalDate ordered_data;
     private java.time.Instant ordered_time;
     private java.lang.CharSequence status;
 
@@ -344,6 +370,9 @@ static {
       if (isValidValue(fields()[0], other.id)) {
         this.id = data().deepCopy(fields()[0].schema(), other.id);
         fieldSetFlags()[0] = other.fieldSetFlags()[0];
+      }
+      if (other.hasIdBuilder()) {
+        this.idBuilder = org.coffeeshop.domain.generated.OrderId.newBuilder(other.getIdBuilder());
       }
       if (isValidValue(fields()[1], other.name)) {
         this.name = data().deepCopy(fields()[1].schema(), other.name);
@@ -364,13 +393,17 @@ static {
         this.orderLineItems = data().deepCopy(fields()[4].schema(), other.orderLineItems);
         fieldSetFlags()[4] = other.fieldSetFlags()[4];
       }
-      if (isValidValue(fields()[5], other.ordered_time)) {
-        this.ordered_time = data().deepCopy(fields()[5].schema(), other.ordered_time);
+      if (isValidValue(fields()[5], other.ordered_data)) {
+        this.ordered_data = data().deepCopy(fields()[5].schema(), other.ordered_data);
         fieldSetFlags()[5] = other.fieldSetFlags()[5];
       }
-      if (isValidValue(fields()[6], other.status)) {
-        this.status = data().deepCopy(fields()[6].schema(), other.status);
+      if (isValidValue(fields()[6], other.ordered_time)) {
+        this.ordered_time = data().deepCopy(fields()[6].schema(), other.ordered_time);
         fieldSetFlags()[6] = other.fieldSetFlags()[6];
+      }
+      if (isValidValue(fields()[7], other.status)) {
+        this.status = data().deepCopy(fields()[7].schema(), other.status);
+        fieldSetFlags()[7] = other.fieldSetFlags()[7];
       }
     }
 
@@ -384,6 +417,7 @@ static {
         this.id = data().deepCopy(fields()[0].schema(), other.id);
         fieldSetFlags()[0] = true;
       }
+      this.idBuilder = null;
       if (isValidValue(fields()[1], other.name)) {
         this.name = data().deepCopy(fields()[1].schema(), other.name);
         fieldSetFlags()[1] = true;
@@ -401,13 +435,17 @@ static {
         this.orderLineItems = data().deepCopy(fields()[4].schema(), other.orderLineItems);
         fieldSetFlags()[4] = true;
       }
-      if (isValidValue(fields()[5], other.ordered_time)) {
-        this.ordered_time = data().deepCopy(fields()[5].schema(), other.ordered_time);
+      if (isValidValue(fields()[5], other.ordered_data)) {
+        this.ordered_data = data().deepCopy(fields()[5].schema(), other.ordered_data);
         fieldSetFlags()[5] = true;
       }
-      if (isValidValue(fields()[6], other.status)) {
-        this.status = data().deepCopy(fields()[6].schema(), other.status);
+      if (isValidValue(fields()[6], other.ordered_time)) {
+        this.ordered_time = data().deepCopy(fields()[6].schema(), other.ordered_time);
         fieldSetFlags()[6] = true;
+      }
+      if (isValidValue(fields()[7], other.status)) {
+        this.status = data().deepCopy(fields()[7].schema(), other.status);
+        fieldSetFlags()[7] = true;
       }
     }
 
@@ -415,7 +453,7 @@ static {
       * Gets the value of the 'id' field.
       * @return The value.
       */
-    public int getId() {
+    public org.coffeeshop.domain.generated.OrderId getId() {
       return id;
     }
 
@@ -425,8 +463,9 @@ static {
       * @param value The value of 'id'.
       * @return This builder.
       */
-    public org.coffeeshop.domain.generated.CoffeeOrder.Builder setId(int value) {
+    public org.coffeeshop.domain.generated.CoffeeOrder.Builder setId(org.coffeeshop.domain.generated.OrderId value) {
       validate(fields()[0], value);
+      this.idBuilder = null;
       this.id = value;
       fieldSetFlags()[0] = true;
       return this;
@@ -440,12 +479,47 @@ static {
       return fieldSetFlags()[0];
     }
 
+    /**
+     * Gets the Builder instance for the 'id' field and creates one if it doesn't exist yet.
+     * @return This builder.
+     */
+    public org.coffeeshop.domain.generated.OrderId.Builder getIdBuilder() {
+      if (idBuilder == null) {
+        if (hasId()) {
+          setIdBuilder(org.coffeeshop.domain.generated.OrderId.newBuilder(id));
+        } else {
+          setIdBuilder(org.coffeeshop.domain.generated.OrderId.newBuilder());
+        }
+      }
+      return idBuilder;
+    }
+
+    /**
+     * Sets the Builder instance for the 'id' field
+     * @param value The builder instance that must be set.
+     * @return This builder.
+     */
+    public org.coffeeshop.domain.generated.CoffeeOrder.Builder setIdBuilder(org.coffeeshop.domain.generated.OrderId.Builder value) {
+      clearId();
+      idBuilder = value;
+      return this;
+    }
+
+    /**
+     * Checks whether the 'id' field has an active Builder instance
+     * @return True if the 'id' field has an active Builder instance
+     */
+    public boolean hasIdBuilder() {
+      return idBuilder != null;
+    }
 
     /**
       * Clears the value of the 'id' field.
       * @return This builder.
       */
     public org.coffeeshop.domain.generated.CoffeeOrder.Builder clearId() {
+      id = null;
+      idBuilder = null;
       fieldSetFlags()[0] = false;
       return this;
     }
@@ -650,6 +724,45 @@ static {
     }
 
     /**
+      * Gets the value of the 'ordered_data' field.
+      * @return The value.
+      */
+    public java.time.LocalDate getOrderedData() {
+      return ordered_data;
+    }
+
+
+    /**
+      * Sets the value of the 'ordered_data' field.
+      * @param value The value of 'ordered_data'.
+      * @return This builder.
+      */
+    public org.coffeeshop.domain.generated.CoffeeOrder.Builder setOrderedData(java.time.LocalDate value) {
+      validate(fields()[5], value);
+      this.ordered_data = value;
+      fieldSetFlags()[5] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'ordered_data' field has been set.
+      * @return True if the 'ordered_data' field has been set, false otherwise.
+      */
+    public boolean hasOrderedData() {
+      return fieldSetFlags()[5];
+    }
+
+
+    /**
+      * Clears the value of the 'ordered_data' field.
+      * @return This builder.
+      */
+    public org.coffeeshop.domain.generated.CoffeeOrder.Builder clearOrderedData() {
+      fieldSetFlags()[5] = false;
+      return this;
+    }
+
+    /**
       * Gets the value of the 'ordered_time' field.
       * @return The value.
       */
@@ -664,9 +777,9 @@ static {
       * @return This builder.
       */
     public org.coffeeshop.domain.generated.CoffeeOrder.Builder setOrderedTime(java.time.Instant value) {
-      validate(fields()[5], value);
+      validate(fields()[6], value);
       this.ordered_time = value.truncatedTo(java.time.temporal.ChronoUnit.MILLIS);
-      fieldSetFlags()[5] = true;
+      fieldSetFlags()[6] = true;
       return this;
     }
 
@@ -675,7 +788,7 @@ static {
       * @return True if the 'ordered_time' field has been set, false otherwise.
       */
     public boolean hasOrderedTime() {
-      return fieldSetFlags()[5];
+      return fieldSetFlags()[6];
     }
 
 
@@ -684,7 +797,7 @@ static {
       * @return This builder.
       */
     public org.coffeeshop.domain.generated.CoffeeOrder.Builder clearOrderedTime() {
-      fieldSetFlags()[5] = false;
+      fieldSetFlags()[6] = false;
       return this;
     }
 
@@ -703,9 +816,9 @@ static {
       * @return This builder.
       */
     public org.coffeeshop.domain.generated.CoffeeOrder.Builder setStatus(java.lang.CharSequence value) {
-      validate(fields()[6], value);
+      validate(fields()[7], value);
       this.status = value;
-      fieldSetFlags()[6] = true;
+      fieldSetFlags()[7] = true;
       return this;
     }
 
@@ -714,7 +827,7 @@ static {
       * @return True if the 'status' field has been set, false otherwise.
       */
     public boolean hasStatus() {
-      return fieldSetFlags()[6];
+      return fieldSetFlags()[7];
     }
 
 
@@ -724,7 +837,7 @@ static {
       */
     public org.coffeeshop.domain.generated.CoffeeOrder.Builder clearStatus() {
       status = null;
-      fieldSetFlags()[6] = false;
+      fieldSetFlags()[7] = false;
       return this;
     }
 
@@ -733,7 +846,16 @@ static {
     public CoffeeOrder build() {
       try {
         CoffeeOrder record = new CoffeeOrder();
-        record.id = fieldSetFlags()[0] ? this.id : (java.lang.Integer) defaultValue(fields()[0]);
+        if (idBuilder != null) {
+          try {
+            record.id = this.idBuilder.build();
+          } catch (org.apache.avro.AvroMissingFieldException e) {
+            e.addParentField(record.getSchema().getField("id"));
+            throw e;
+          }
+        } else {
+          record.id = fieldSetFlags()[0] ? this.id : (org.coffeeshop.domain.generated.OrderId) defaultValue(fields()[0]);
+        }
         record.name = fieldSetFlags()[1] ? this.name : (java.lang.CharSequence) defaultValue(fields()[1]);
         record.nickName = fieldSetFlags()[2] ? this.nickName : (java.lang.CharSequence) defaultValue(fields()[2]);
         if (storeBuilder != null) {
@@ -747,8 +869,9 @@ static {
           record.store = fieldSetFlags()[3] ? this.store : (org.coffeeshop.domain.generated.Store) defaultValue(fields()[3]);
         }
         record.orderLineItems = fieldSetFlags()[4] ? this.orderLineItems : (java.util.List<org.coffeeshop.domain.generated.OrderLineItem>) defaultValue(fields()[4]);
-        record.ordered_time = fieldSetFlags()[5] ? this.ordered_time : (java.time.Instant) defaultValue(fields()[5]);
-        record.status = fieldSetFlags()[6] ? this.status : (java.lang.CharSequence) defaultValue(fields()[6]);
+        record.ordered_data = fieldSetFlags()[5] ? this.ordered_data : (java.time.LocalDate) defaultValue(fields()[5]);
+        record.ordered_time = fieldSetFlags()[6] ? this.ordered_time : (java.time.Instant) defaultValue(fields()[6]);
+        record.status = fieldSetFlags()[7] ? this.status : (java.lang.CharSequence) defaultValue(fields()[7]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;

@@ -4,8 +4,10 @@ import org.coffeeshop.domain.generated.*;
 
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Random;
+import java.util.UUID;
 
 public class CofeeOrderUtil {
 
@@ -47,13 +49,17 @@ public class CofeeOrderUtil {
     }
 
 
+
     public static CoffeeOrder buildnewCoffeeOrder() {
+
+        var ApporderId = OrderId.newBuilder().setId(randomId()).build();
         return CoffeeOrder.newBuilder().
-                setId(randomId()).
+                setId(ApporderId).
                 setName("Esakki Thangappapillai").
                 setNickName("Esak")
                 .setStore(generateStore())
                 .setOrderLineItems(generateOrderLineItems())
+                .setOrderedData(LocalDate.now())
                 .setOrderedTime(Instant.now())
                 .setStatus("NEW")
                 .build();

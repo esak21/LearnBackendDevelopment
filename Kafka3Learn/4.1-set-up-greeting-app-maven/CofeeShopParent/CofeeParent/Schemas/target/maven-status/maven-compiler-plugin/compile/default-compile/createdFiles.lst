@@ -1,10 +1,12 @@
+org/coffeeshop/domain/generated/OrderId.class
 org/coffeeshop/domain/generated/OrderLineItem.class
-org/coffeeshop/domain/generated/Store$Builder.class
-org/coffeeshop/domain/generated/OrderLineItem$Builder.class
 org/coffeeshop/domain/generated/CoffeeOrder.class
 org/coffeeshop/Main.class
 org/coffeeshop/domain/generated/Size.class
-org/coffeeshop/domain/generated/Address$Builder.class
 org/coffeeshop/domain/generated/Address.class
-org/coffeeshop/domain/generated/Store.class
 org/coffeeshop/domain/generated/CoffeeOrder$Builder.class
+org/coffeeshop/domain/generated/OrderId$Builder.class
+org/coffeeshop/domain/generated/Store$Builder.class
+org/coffeeshop/domain/generated/OrderLineItem$Builder.class
+org/coffeeshop/domain/generated/Address$Builder.class
+org/coffeeshop/domain/generated/Store.class

@@ -5,7 +5,7 @@
   "fields": [
     {
       "name": "id",
-      "type": "int"
+      "type": "OrderId"
     },
     {
       "name": "name",
@@ -27,6 +27,12 @@
           "name": "orderLineItem",
           "type": "OrderLineItem"
         }
+      }
+    },{
+      "name": "ordered_data",
+      "type": {
+        "type": "int",
+        "logicalType": "date"
       }
     },
     {
