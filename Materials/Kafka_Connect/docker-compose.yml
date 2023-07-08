@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 
 services:
   # this is our kafka cluster.
@@ -30,21 +30,3 @@ services:
       - elasticsearch
     ports:
       - 5601:5601
-
-  appdb:
-    image: mysql:5.7.22
-    container_name: appdb
-    tty: true
-    ports:
-      - "3306:3306"
-    environment:
-      MYSQL_DATABASE: laravel
-      MYSQL_ROOT_PASSWORD: abc123
-      SERVICE_TAGS: dev
-      SERVICE_NAME: mysql
-    volumes:
-      - /home/esak/db-eks/db:/var/lib/mysql
-      - /home/esak/db-eks/db/init.sql:/docker-entrypoint-initdb.d/init.sql
-volumes:
-  db:
-    driver: local

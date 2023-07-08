@@ -1,11 +1,11 @@
 package org.example.coffeeOrder.service;
 
-import org.coffeeshop.domain.generated.Address;
-import org.coffeeshop.domain.generated.CoffeeOrder;
-import org.coffeeshop.domain.generated.OrderLineItem;
-import org.coffeeshop.domain.generated.Store;
+import org.coffeeshop.domain.generated.*;
 import org.example.coffeeOrder.dto.CoffeeOrderDTO;
+import org.example.coffeeOrder.dto.CoffeeOrderUpdateDTO;
 import org.example.coffeeOrder.dto.OrderLineItemDTO;
+import org.example.coffeeOrder.producer.CoffeeOrderProducer;
+import org.example.coffeeOrder.producer.CoffeeOrderUpdateProducer;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
@@ -17,10 +17,21 @@ import java.util.stream.Collectors;
 @Service
 public class CoffeeOrderService {
 
+
+    private CoffeeOrderProducer coffeeOrderProducer;
+
+    private CoffeeOrderUpdateProducer coffeeOrderUpdateProducer;
+
+    public CoffeeOrderService(CoffeeOrderProducer coffeeOrderProducer, CoffeeOrderUpdateProducer coffeeOrderUpdateProducer) {
+        this.coffeeOrderProducer = coffeeOrderProducer;
+        this.coffeeOrderUpdateProducer = coffeeOrderUpdateProducer;
+    }
+
     public CoffeeOrderDTO newOrder(CoffeeOrderDTO coffeeOrderDTO) {
 
         var coffeeOrderAvro = mapToCoffeeOrder(coffeeOrderDTO);
          coffeeOrderDTO.setId(coffeeOrderAvro.getId().toString());
+         coffeeOrderProducer.sendCoffeeOrderMessage(coffeeOrderAvro);
          return coffeeOrderDTO;
     }
 
@@ -58,5 +69,20 @@ public class CoffeeOrderService {
                             store.getAddress().getZip()
                         )
                 ).build();
+    }
+
+    public CoffeeOrderUpdateDTO coffeeOrderStatusUpdate(String orderid, CoffeeOrderUpdateDTO coffeeOrderUpdateDTO) {
+        var coffeeUpdateEvent = mapToCoffeeOrderUpdate(orderid, coffeeOrderUpdateDTO);
+        System.out.println(coffeeUpdateEvent);
+        coffeeOrderUpdateProducer.sendCoffeeOrderMessage(coffeeUpdateEvent);
+        return coffeeOrderUpdateDTO;
+    }
+
+    private CoffeeUpdateEvent mapToCoffeeOrderUpdate(String orderid, CoffeeOrderUpdateDTO coffeeOrderUpdateDTO) {
+
+        return  CoffeeUpdateEvent.newBuilder()
+                .setId(UUID.fromString(orderid))
+                .setStatus(coffeeOrderUpdateDTO.getOrderstatus())
+                .build();
     }
 }

@@ -4,5 +4,7 @@
 /home/esak/2K24/LearnBackendDevelopment/Kafka3Learn/SpringBootCofeeShop/CoffeeShopCorporation/Schemas/src/main/java/org/coffeeshop/domain/generated/Store.java
 /home/esak/2K24/LearnBackendDevelopment/Kafka3Learn/SpringBootCofeeShop/CoffeeShopCorporation/Schemas/src/main/java/org/example/coffeeOrder/Main.java
 /home/esak/2K24/LearnBackendDevelopment/Kafka3Learn/SpringBootCofeeShop/CoffeeShopCorporation/Schemas/src/main/java/org/coffeeshop/domain/generated/OrderId.java
+/home/esak/2K24/LearnBackendDevelopment/Kafka3Learn/SpringBootCofeeShop/CoffeeShopCorporation/Schemas/src/main/java/org/coffeeshop/domain/generated/OrderStatus.java
+/home/esak/2K24/LearnBackendDevelopment/Kafka3Learn/SpringBootCofeeShop/CoffeeShopCorporation/Schemas/src/main/java/org/coffeeshop/domain/generated/CoffeeUpdateEvent.java
 /home/esak/2K24/LearnBackendDevelopment/Kafka3Learn/SpringBootCofeeShop/CoffeeShopCorporation/Schemas/src/main/java/org/coffeeshop/domain/generated/CoffeeOrder.java
 /home/esak/2K24/LearnBackendDevelopment/Kafka3Learn/SpringBootCofeeShop/CoffeeShopCorporation/Schemas/src/main/java/org/coffeeshop/domain/generated/OrderLineItem.java

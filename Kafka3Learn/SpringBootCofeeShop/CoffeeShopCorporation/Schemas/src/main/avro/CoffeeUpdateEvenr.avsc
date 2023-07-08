@@ -1,0 +1,27 @@
+{
+  "name": "CoffeeUpdateEvent",
+  "namespace": "org.coffeeshop.domain.generated",
+  "type": "record",
+  "fields": [
+    {
+      "name": "id",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid"
+      }
+    },
+    {
+      "name": "status",
+      "type": {
+        "type": "enum",
+        "name": "OrderStatus",
+        "symbols": [
+          "PROCESSING",
+          "READY_FOR_PICK_UP"
+        ],
+        "default": "PROCESSING"
+      },
+      "default": "PROCESSING"
+    }
+  ]
+}

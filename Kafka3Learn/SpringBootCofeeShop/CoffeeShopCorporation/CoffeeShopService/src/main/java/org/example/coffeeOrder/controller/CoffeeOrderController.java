@@ -2,6 +2,7 @@ package org.example.coffeeOrder.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.example.coffeeOrder.dto.CoffeeOrderDTO;
+import org.example.coffeeOrder.dto.CoffeeOrderUpdateDTO;
 import org.example.coffeeOrder.service.CoffeeOrderService;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
@@ -25,5 +26,18 @@ public class CoffeeOrderController {
         log.info("Received the request for an Order : {} ", coffeeOrderDTO);
         var orderDetails = coffeeOrderService.newOrder(coffeeOrderDTO);
         return coffeeOrderDTO;
+    }
+
+    @PutMapping("/{order_id}")
+    @ResponseStatus(HttpStatus.OK)
+    public CoffeeOrderUpdateDTO CoffeeOrderStatusUpdate(@PathVariable("order_id") String orderid,
+                                   @RequestBody CoffeeOrderUpdateDTO coffeeOrderUpdateDTO) {
+
+
+
+        var coffeeOrderupdateDetails = coffeeOrderService.coffeeOrderStatusUpdate(orderid, coffeeOrderUpdateDTO);
+        return coffeeOrderupdateDetails;
+
+
     }
 }

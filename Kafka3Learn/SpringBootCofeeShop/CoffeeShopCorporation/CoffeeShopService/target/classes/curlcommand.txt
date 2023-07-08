@@ -9,6 +9,12 @@ curl -i \
 PUT Coffee Order UPDATE Event
 -----------------------
 curl -i \
--d '{"orderStatus":"PROCESSING"}' \
+-d '{"orderstatus":"PROCESSING"}' \
 -H "Content-Type: application/json" \
--X PUT http://localhost:8085/v1/coffee_orders/a27d9492-1402-48d6-9bf7-2c59c76e8a34
+-X PUT http://localhost:8085/v1/coffee_orders/47fed7d8-5103-4d9f-94fc-4343c41da4f5
+
+
+curl -i \
+-d '{"orderstatus":"READY_FOR_PICK_UP"}' \
+-H "Content-Type: application/json" \
+-X PUT http://localhost:8085/v1/coffee_orders/47fed7d8-5103-4d9f-94fc-4343c41da4f5
