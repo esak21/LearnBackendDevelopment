@@ -101,12 +101,13 @@ S3
 
 Working S3 Module 
 
+name=s3-sinlconnector
 connector.class=io.confluent.connect.s3.S3SinkConnector
 s3.region=us-east-1
 flush.size=3
 schema.compatibility=NONE
 tasks.max=1
-topics=bathirdparty-library-events
+topics=books-events
 s3.part.size=5242880
 s3.prefix=/connect-test
 format.class=io.confluent.connect.s3.format.json.JsonFormat
@@ -114,11 +115,17 @@ partitioner.class=io.confluent.connect.storage.partitioner.DefaultPartitioner
 value.converter=org.apache.kafka.connect.storage.StringConverter
 storage.class=io.confluent.connect.s3.storage.S3Storage
 s3.bucket.name=kafka-conenct-example
+aws.access.key.id=AKIAYPWFPPZXPTBWZ35K
+aws.secret.access.key=cIKU38L8uxfX2Va3xWxPPDsKYMb6kd7jRBW5ulEq
 
 
 
 value.converter=org.apache.kafka.connect.avro.avroconverter
 storage.class=io.confluent.connect.s3.storage.S3Storage
+
+key.converter = org.apache.kafka.connect.json.JsonConverter,                                                                                                                                                                                                 
+key.converter.schemas.enable=false
+value.converter.schemas.enable=false
 
 ===========================================================================
 
@@ -131,10 +138,10 @@ storage.class=io.confluent.connect.s3.storage.S3Storage
 
 connector.class=io.confluent.connect.aws.dynamodb.DynamoDbSinkConnector
 tasks.max=1
-topics=bathirdparty-library-events
+topics=books-events-1
 aws.dynamodb.region=us-east-1
 aws.dynamodb.endpoint=https://dynamodb.us-east-1.amazonaws.com
-aws.dynamodb.pk.hash=value.orderid
+aws.dynamodb.pk.hash=value.bookid
 aws.dynamodb.pk.sort=
 table.name.format=kafka_${topic}
 transforms=flatten
@@ -144,12 +151,8 @@ key.converter.schemas.enable=false
 value.converter.schemas.enable=false
 key.converter=org.apache.kafka.connect.storage.StringConverter
 value.converter=org.apache.kafka.connect.json.JsonConverter
-
-confluent.topic.bootstrap.servers=<ENTER MSK CLUSTER ENDPOINT>
-confluent.topic.security.protocol=SASL_SSL
-confluent.topic.sasl.mechanism=AWS_MSK_IAM
-confluent.topic.sasl.jaas.config=software.amazon.msk.auth.iam.IAMLoginModule required;
-confluent.topic.sasl.client.callback.handler.class=software.amazon.msk.auth.iam.IAMClientCallbackHandler
+aws.access.key.id=AKIAYPWFPPZXPTBWZ35K
+aws.secret.access.key=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
 
 
 

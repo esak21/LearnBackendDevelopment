@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.concurrent.TimeUnit;
+
 @Slf4j
 @RestController
 @RequestMapping("/v1/book-orders")
@@ -30,8 +32,11 @@ public class BookController {
         for(int i = 0; i <= 3000; i ++ ){
             Book book = bookGenerator.getNextBookInvoice();
             try {
-                booksProducer.sendBookEvents(book); 
+                booksProducer.sendBookEvents(book);
+                TimeUnit.SECONDS.sleep(20);
             } catch (JsonProcessingException e) {
+                throw new RuntimeException(e);
+            } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
         }

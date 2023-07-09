@@ -1,6 +1,8 @@
 package com.bookapp.example.booksproducer.datagenerator;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.IOException;
@@ -8,22 +10,23 @@ import java.util.Random;
 
 
 
-
+@Component
 public class BookGenerator {
 
     private Book[] books;
 
-    private final Random random ;
+    public BookGenerator(Book[] books) {
+        this.books = books;
+    }
 
-    public BookGenerator() {
-        random = new Random();
+    public void MyBookGenerator() {
 
         String FileLocation = "/home/esak/2K24/LearnBackendDevelopment/Kafka3Learn/DemoBooksApplication/booksproducer/src/main/resources/Data/samplebooks.json";
 
         final ObjectMapper mapper;
         mapper = new ObjectMapper();
         try {
-            var results  = mapper.readValue(new File(FileLocation), Book[].class);
+             books  = mapper.readValue(new File(FileLocation), Book[].class);
 
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -35,10 +38,12 @@ public class BookGenerator {
    }
 
     private int getIndex() {
+        Random random = new Random();
         return random.nextInt(3000);
     }
 
     public Book getNextBookInvoice() {
+        MyBookGenerator();
         Book bookobjet = books[getIndex()];
         return bookobjet;
     }
