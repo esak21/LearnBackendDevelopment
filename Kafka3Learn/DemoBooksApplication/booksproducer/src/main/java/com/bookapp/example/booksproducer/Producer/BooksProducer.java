@@ -40,7 +40,7 @@ public class BooksProducer {
 
 
     public CompletableFuture<SendResult<Integer, String>> sendBookEvents(Book bookEvent) throws JsonProcessingException {
-        var key = bookEvent.getBookId();
+        Integer key = bookEvent.getBookId();
         var value = objectMapper.writeValueAsString(bookEvent);
 
         var results = kafkatemplate.send(topicName, key, value);
