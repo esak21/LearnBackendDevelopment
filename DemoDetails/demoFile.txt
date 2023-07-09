@@ -35,15 +35,21 @@ sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
 sudo yum install -y apache-maven
 mvn –version
 --------------------------------------------------------------------------------
-
+sudo yum install git -y 
+git clone -b kafka_conenct https://github.com/esak21/LearnBackendDevelopment.git
 -------------------------------------------------------
 
 mvn compile exec:java -Dexec.mainClass=org.example.coffeeOrderCoffeeOrderProducerApplication 
 
 
-mvn compile exec:java -Dexec.mainClass=com.learncogesak.LibraryEventsProducerApplication
+mvn compile exec:java -Dexec.mainClass=com.bookapp.example.booksproducer.BooksproducerApplication
 
+Control Center Login 
+http://localhost:9021/
 
+confluent-hub install confluentinc/kafka-connect-aws-lambda:2.0.6
+confluent-hub install confluentinc/kafka-connect-s3:10.5.1
+confluent-hub install confluentinc/kafka-connect-elasticsearch:14.0.6
 
 ---------------------------------------------------------
 
@@ -234,3 +240,10 @@ schema.compatibility=NONE
     "timestamp.extractor":"Record"                                                                                                                                                                                                                                  
   }                                                                                                                                                                                                                                                                 
 } 
+
+
+
+{"error":{"root_cause":[{"type":"mapper_parsing_exception","reason":"Root mapping definition has unsupported parameters:  [type : text] [fields : {keyword={ignore_above=256, type=keyword}}]"}],"type":"mapper_parsing_exception","reason":"Root mapping definition has unsupported parameters:  [type : text] [fields : {keyword={ignore_above=256, type=keyword}}]"},"status":400}
+		at org.elasticsearch.client.RestClient.convertResponse(RestClient.java:346)
+
+

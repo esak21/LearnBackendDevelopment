@@ -1,7 +1,9 @@
-FROM confluentinc/cp-kafka-connect-base:7.3.0
+FROM cnfldemos/cp-server-connect-datagen:0.6.0-7.3.0
 
 ENV CONNECT_PLUGIN_PATH: "/usr/share/java,/usr/share/confluent-hub-components"
 
-RUN confluent-hub install --no-prompt jcustenborder/kafka-connect-spooldir:2.0.65
-RUN confluent-hub install --no-prompt neo4j/kafka-connect-neo4j:2.0.2
-RUN confluent-hub install --no-prompt jcustenborder/kafka-connect-spooldir:2.0.43
+RUN confluent-hub install --no-prompt confluentinc/kafka-connect-s3:10.5.1
+RUN confluent-hub install --no-prompt confluentinc/kafka-connect-aws-dynamodb:latest
+RUN confluent-hub install --no-prompt confluentinc/kafka-connect-aws-lambda:2.0.6
+RUN confluent-hub install --no-prompt confluentinc/kafka-connect-elasticsearch:14.0.6
+
