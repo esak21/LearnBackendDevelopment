@@ -21,7 +21,7 @@ public class BookGenerator {
 
     public void MyBookGenerator() {
 
-        String FileLocation = "/home/esak/2K24/LearnBackendDevelopment/Kafka3Learn/DemoBooksApplication/booksproducer/src/main/resources/Data/samplebooks.json";
+        String FileLocation = "src/main/resources/Data/samplebooks.json";
 
         final ObjectMapper mapper;
         mapper = new ObjectMapper();

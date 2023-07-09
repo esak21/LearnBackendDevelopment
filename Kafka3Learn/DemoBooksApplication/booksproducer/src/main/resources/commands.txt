@@ -2,3 +2,10 @@ curl -i \
 -d '{"status":"start"}' \
 -H "Content-Type: application/json" \
 -X POST http://localhost:9096/v1/book-orders
+
+3.90.56.143
+
+curl -i \
+-d '{"status":"start"}' \
+-H "Content-Type: application/json" \
+-X POST http://3.90.56.143:9096/v1/book-orders
