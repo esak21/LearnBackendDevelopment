@@ -10,22 +10,9 @@ sudo yum install -y docker
 sudo service docker start 
 sudo usermod -a -G docker ec2-user
 
-Logout and Login Back to same Ec2 
-docker info 
-
-check docker is installed 
-
-docker run -d -p 80:5000 training/webapp:latest python app.py 
-docker run -d -p 80:80 --name nginx nginx 
-
 sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
-
 sudo chmod +x /usr/local/bin/docker-compose
 
-docker-compose version
-
-/usr/lib/jvm/jdk-17/
-sudo nano /etc/environment export JAVA_HOME=/usr/lib/jvm/jdk-17/
 
 Install Java17 in AWS Linux 
 sudo dnf install java-17-amazon-corretto-devel -y 
@@ -38,6 +25,26 @@ mvn –version
 sudo yum install git -y 
 git clone -b kafka_conenct https://github.com/esak21/LearnBackendDevelopment.git
 -------------------------------------------------------
+
+
+
+Logout and Login Back to same Ec2 
+docker info 
+
+check docker is installed 
+
+docker run -d -p 80:5000 training/webapp:latest python app.py 
+docker run -d -p 80:80 --name nginx nginx 
+
+
+
+
+
+docker-compose version
+
+/usr/lib/jvm/jdk-17/
+sudo nano /etc/environment export JAVA_HOME=/usr/lib/jvm/jdk-17/
+
 
 mvn compile exec:java -Dexec.mainClass=org.example.coffeeOrderCoffeeOrderProducerApplication 
 
@@ -54,6 +61,19 @@ confluent-hub install confluentinc/kafka-connect-elasticsearch:14.0.6
 ---------------------------------------------------------
 
 Kafka to ElasticSearch Sink 
+
+
+curl -s -i -X PUT -H  "Content-Type:application/json" \
+    http://localhost:8083/connectors/sink-elastic-01/config \
+    -d '{
+            "connector.class": "io.confluent.connect.elasticsearch.ElasticsearchSinkConnector",
+            "connection.url": "http://172.18.0.3:9200",
+            "type.name": "_doc",
+            "topics": "books-events-1",
+            "key.ignore": "true",
+            "schema.ignore": "true"
+            }'
+
 
 
   "name": "elasticsearch-sink",

@@ -57,7 +57,7 @@ public class Book {
     private BigInteger ratingsCount;
 
     @JsonProperty("text_reviews_count")
-    private String textReviewCount;
+    private BigInteger textReviewCount;
     @JsonProperty("publication_date")
     private String publicationDate;
 
