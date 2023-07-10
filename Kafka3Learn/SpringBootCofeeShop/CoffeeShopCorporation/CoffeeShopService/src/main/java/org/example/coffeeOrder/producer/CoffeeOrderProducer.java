@@ -23,7 +23,7 @@ public class CoffeeOrderProducer {
     public void sendCoffeeOrderMessage (CoffeeOrder coffeeOrderAvro) {
         var CoffeeproducerRecord = new ProducerRecord<>(APPTOPICNAME , coffeeOrderAvro.getId().toString(), coffeeOrderAvro);
 
-        var coffeeresults = kafkaTemplate.send(CoffeeproducerRecord);
+            var coffeeresults = kafkaTemplate.send(CoffeeproducerRecord);
 
         coffeeresults.whenComplete( (sendResult, throwable) -> {
             if(throwable != null) {

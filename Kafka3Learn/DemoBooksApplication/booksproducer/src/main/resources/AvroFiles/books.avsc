@@ -1,0 +1,56 @@
+{
+  "name": "BooksAvro",
+  "type": "record",
+  "namespace": "com.bookapp.example.booksproducer.avro",
+  "fields": [
+    {
+      "name": "bookID",
+      "type": "int"
+    },
+    {
+      "name": "title",
+      "type": "string"
+    },
+    {
+      "name": "authors",
+      "type": "string"
+    },
+    {
+      "name": "average_rating",
+      "type": "double"
+    },
+    {
+      "name": "isbn",
+      "type": "string"
+    },
+    {
+      "name": "isbn13",
+      "type": "string"
+    },
+    {
+      "name": "language_code",
+      "type": "string"
+    },
+    {
+      "name": "num_pages",
+      "type": "int"
+    },
+    {
+      "name": "ratings_count",
+      "type": "int"
+    },
+    {
+      "name": "text_reviews_count",
+      "type": "int"
+    },
+    {
+      "name": "publication_date",
+      "type": "string"
+    },
+    {
+      "name": "publisher",
+      "type": "string"
+    }
+
+  ]
+}

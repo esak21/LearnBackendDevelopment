@@ -1,9 +1,11 @@
 package com.bookapp.example.booksproducer.controller;
 
+import com.bookapp.example.booksproducer.Producer.BooksAvroProducer;
 import com.bookapp.example.booksproducer.Producer.BooksProducer;
 import com.bookapp.example.booksproducer.datagenerator.Book;
 import com.bookapp.example.booksproducer.datagenerator.BookGenerator;
 import com.bookapp.example.booksproducer.dto.bookEvents;
+import com.bookapp.example.booksproducer.service.BookService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -18,12 +20,16 @@ import java.util.concurrent.TimeUnit;
 public class BookController {
 
     private BookGenerator bookGenerator;
-    private BooksProducer booksProducer;
+    private BooksAvroProducer booksProducer;
 
-    public BookController(BookGenerator bookGenerator, BooksProducer booksProducer) {
+    private BookService bookService;
+
+    public BookController(BookGenerator bookGenerator, BooksAvroProducer booksProducer, BookService bookService) {
         this.bookGenerator = bookGenerator;
         this.booksProducer = booksProducer;
+        this.bookService = bookService;
     }
+
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -32,10 +38,9 @@ public class BookController {
         for(int i = 0; i <= 3000; i ++ ){
             Book book = bookGenerator.getNextBookInvoice();
             try {
-                booksProducer.sendBookEvents(book);
+                var bookInAvro = bookService.MapBooksAvro(book);
+                booksProducer.sendBooksAvroProducer(bookInAvro);
                 TimeUnit.SECONDS.sleep(20);
-            } catch (JsonProcessingException e) {
-                throw new RuntimeException(e);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

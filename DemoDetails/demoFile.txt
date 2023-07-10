@@ -71,7 +71,9 @@ curl -s -i -X PUT -H  "Content-Type:application/json" \
             "type.name": "_doc",
             "topics": "books-events-1",
             "key.ignore": "true",
-            "schema.ignore": "true"
+            "schema.ignore": "true",
+            "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+            "value.converter.schemas.enable": "false"
             }'
 
 
