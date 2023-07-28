@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>App01</artifactId>
+    <artifactId>orderApp</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -76,4 +76,6 @@
 
 
     </dependencies>
+
+
 </project>

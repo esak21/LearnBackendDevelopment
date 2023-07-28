@@ -10,7 +10,7 @@ import org.apache.kafka.streams.kstream.Produced;
 import org.example.Domain.Greeting;
 import org.example.serdes.SerdesFactory;
 
-public class GreetingsTopology {
+public class GreetingsTopologyOlder {
 
     public static String GREETINGS = "greetings";
 
@@ -20,10 +20,22 @@ public class GreetingsTopology {
 
         StreamsBuilder streamsBuilder  = new StreamsBuilder();
 
+//         Add Source Processor
+//        var greetingsStream = streamsBuilder.
+//                stream(GREETINGS, Consumed.with(Serdes.String(), Serdes.String()));
+
         var greetingsStream = getCustomGreetingKStream(streamsBuilder);
 
 //        Prints the Stream to Console
         greetingsStream.print(Printed.<String, Greeting>toSysOut().withLabel("greetingsStream"));
+
+        //Add Processing Logic
+//        var modifiedStream = greetingsStream
+//                .filter( (key,value) -> value.message().length() > 5 )
+//                .peek((k,v) -> {
+//                    System.out.println("After Filter : key is " +k + "value is" + v );
+//                })
+//        .mapValues( (readonlyKey, value) -> value.toUpperCase());
 
         KStream<String, Greeting> modifiedStream = greetingsStream.mapValues(
                 (readOnlyKey, value) -> new Greeting(value.message().toUpperCase() , value.timestamp() )
@@ -34,11 +46,10 @@ public class GreetingsTopology {
         modifiedStream.print(Printed.<String, Greeting>toSysOut().withLabel("modifiedStream"));
 
 
-
 //        Add Sink Processor
         modifiedStream.to(
                 GREETINGS_UPPER,
-                Produced.with(Serdes.String(), SerdesFactory.greetingSerdesUsingGenerics())
+                Produced.with(Serdes.String(), SerdesFactory.greetingSerdes())
         );
 
 
@@ -49,7 +60,7 @@ public class GreetingsTopology {
 
     private static KStream<String, Greeting> getCustomGreetingKStream(StreamsBuilder streamsBuilder) {
         KStream<String, Greeting> greetingStream = streamsBuilder
-                .stream(GREETINGS, Consumed.with(Serdes.String(), SerdesFactory.greetingSerdesUsingGenerics()) );
+                .stream(GREETINGS, Consumed.with(Serdes.String(), SerdesFactory.greetingSerdes()) );
 
 
         return greetingStream;

@@ -1,7 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="904f72a2-cd1b-4efa-9055-851e68c7a118" name="Changes" comment="" />
+    <list default="true" id="904f72a2-cd1b-4efa-9055-851e68c7a118" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../Kafka3Learn/DemoBooksApplication/App01/src/main/java/org/example/Domain/Greeting.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Kafka3Learn/DemoBooksApplication/App01/src/main/java/org/example/Producer/GreetingMockDataProducer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Kafka3Learn/DemoBooksApplication/App01/src/main/java/org/example/Producer/ProducerUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Kafka3Learn/DemoBooksApplication/App01/src/main/java/org/example/serdes/GreetingSerdes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Kafka3Learn/DemoBooksApplication/App01/src/main/java/org/example/serdes/GreetingSerializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Kafka3Learn/DemoBooksApplication/App01/src/main/java/org/example/serdes/GreetingsDeserializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Kafka3Learn/DemoBooksApplication/App01/src/main/java/org/example/serdes/JsonDeserializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Kafka3Learn/DemoBooksApplication/App01/src/main/java/org/example/serdes/JsonSerializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Kafka3Learn/DemoBooksApplication/App01/src/main/java/org/example/serdes/SerdesFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Kafka3Learn/DemoBooksApplication/App01/src/main/java/org/example/topology/GreetingsTopologyOlder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../01OrderManagement/orderApp/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../01OrderManagement/orderApp/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../01OrderManagement/orderApp/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../01OrderManagement/orderApp/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../01OrderManagement/orderApp/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../01OrderManagement/orderApp/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../01OrderManagement/orderApp/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../01OrderManagement/orderApp/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../01OrderManagement/orderApp/src/main/java/org/example/Domain/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../01OrderManagement/orderApp/src/main/java/org/example/Domain/OrderLineItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../01OrderManagement/orderApp/src/main/java/org/example/Domain/OrderType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../01OrderManagement/orderApp/src/main/java/org/example/Domain/Revenue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../01OrderManagement/orderApp/src/main/java/org/example/OrdersKafkaStreamApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../01OrderManagement/orderApp/src/main/java/org/example/Topology/OrdersTopology.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../01OrderManagement/orderApp/src/main/java/org/example/producer/OrdersMockDataProducer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../01OrderManagement/orderApp/src/main/java/org/example/producer/ProducerUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../01OrderManagement/orderApp/src/main/java/org/example/serdes/JsonDeserializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../01OrderManagement/orderApp/src/main/java/org/example/serdes/JsonSerializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../01OrderManagement/orderApp/src/main/java/org/example/serdes/SerdesFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Kafka3Learn/DemoBooksApplication/App01/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Kafka3Learn/DemoBooksApplication/App01/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Kafka3Learn/DemoBooksApplication/App01/src/main/java/org/example/launcher/GreetingsStreamApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Kafka3Learn/DemoBooksApplication/App01/src/main/java/org/example/launcher/GreetingsStreamApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Kafka3Learn/DemoBooksApplication/App01/src/main/java/org/example/topology/GreetingsTopology.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Kafka3Learn/DemoBooksApplication/App01/src/main/java/org/example/topology/GreetingsTopology.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Kafka3Learn/DemoBooksApplication/App01/target/classes/org/example/launcher/GreetingsStreamApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Kafka3Learn/DemoBooksApplication/App01/target/classes/org/example/launcher/GreetingsStreamApp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Kafka3Learn/DemoBooksApplication/App01/target/classes/org/example/topology/GreetingsTopology.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Kafka3Learn/DemoBooksApplication/App01/target/classes/org/example/topology/GreetingsTopology.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Kafka3Learn/DemoBooksApplication/App01/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../../Kafka3Learn/DemoBooksApplication/App01/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,13 +51,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/home/esak/2K24/LearnBackendDevelopment/Kafka3StreamsBabySteps/00StreamsGreetingApp"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/esak/2K24/LearnBackendDevelopment/Kafka3StreamsBabySteps/00StreamsGreetingApp&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
