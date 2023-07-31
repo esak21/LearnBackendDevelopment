@@ -1,38 +1,4 @@
 {
-  "name": "sink-elastic-01",
-  "config": {
-    "connector.class": "io.confluent.connect.elasticsearch.ElasticsearchSinkConnector",
-    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
-    "topics": "books-events-1",
-    "connection.url": "http://172.18.0.3:9200",
-    "key.ignore": "true",
-    "schema.ignore": "true",
-    "type.name": "_doc",
-    "value.converter.schemas.enable": "false"
-  }
-}
-
-
-
-
-
-{
-  "name": "sink-elastic-01",
-  "config": {
-    "connector.class": "io.confluent.connect.elasticsearch.ElasticsearchSinkConnector",
-    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
-    "topics": "books-events-1A-example",
-    "connection.url": "http://172.18.0.3:9200",
-    "key.ignore": "true",
-    "schema.ignore": "true",
-    "type.name": "_doc",
-    "value.converter.schemas.enable": "false"
-  }
-}
-
-
-
-{
   "name": "elasticsearch-sink",
   "config": {
     "connector.class": "io.confluent.connect.elasticsearch.ElasticsearchSinkConnector",
@@ -45,7 +11,7 @@
     "name": "elasticsearch-sink",
     "key.converter": "org.apache.kafka.connect.converters.IntegerConverter",
     "key.converter.schemas.enable": "false",
-    "value.converter": "io.confluent.connect.avro.AvroConverter",
+   "value.converter": "io.confluent.connect.avro.AvroConverter",
     "value.converter.schemas.enable": "true",
     "value.converter.schema.registry.url": "http://172.26.0.2:8081",
     "transforms": "insertTS,formatTS",
