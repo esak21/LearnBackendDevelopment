@@ -1,0 +1,8 @@
+org/cogesak/kafka/datagenerator/SalesGenerator.class
+org/cogesak/kafka/Producer/SalesProducer.class
+org/cogesak/kafka/controller/SalesController.class
+org/cogesak/kafka/dto/salesEvent.class
+org/cogesak/kafka/datagenerator/baseSales.class
+org/cogesak/kafka/SalesProducerApplication.class
+org/cogesak/kafka/dto/salesEvent$salesEventBuilder.class
+org/cogesak/kafka/Configuration/AutoConfig.class

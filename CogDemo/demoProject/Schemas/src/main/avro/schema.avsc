@@ -1,0 +1,72 @@
+{
+  "name": "Sales",
+  "type" : "record",
+  "namespace": "org.cogesak.domain.generated",
+  "fields": [
+    {
+      "name": "salesid",
+      "type": "int"
+    },
+    {
+      "name": "title",
+      "type": "string"
+    },
+    {
+      "name": "rating",
+      "type": "double"
+    },
+    {
+      "name": "category",
+      "type": "string"
+    },
+    {
+      "name": "platform",
+      "type": "string"
+    },
+    {
+      "name": "price",
+      "type": "int"
+    },
+    {
+      "name": "actualprice",
+      "type": "int"
+    },
+    {
+      "name": "offer",
+      "type": "string"
+    },
+    {
+      "name": "noratings",
+      "type": ["null", "int"]
+    },
+    {
+      "name": "noreviews",
+      "type": ["null", "int"]
+    },
+    {
+      "name": "star5",
+      "type": ["null", "int"]
+    },
+    {
+      "name": "star4",
+      "type": ["null", "int"]
+    },
+    {
+      "name": "star3",
+      "type": ["null", "int"]
+    },
+    {
+      "name": "star2",
+      "type": ["null", "int"]
+    },
+    {
+      "name": "star1",
+      "type": ["null", "int"]
+    },
+    {
+      "name": "fulfilled",
+      "type": "int"
+    }
+
+  ]
+}

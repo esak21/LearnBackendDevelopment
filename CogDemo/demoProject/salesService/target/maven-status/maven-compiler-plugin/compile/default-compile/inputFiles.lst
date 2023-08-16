@@ -1,0 +1,7 @@
+/home/esak/2K24/LearnBackendDevelopment/CogDemo/demoProject/salesService/src/main/java/org/cogesak/kafka/Configuration/AutoConfig.java
+/home/esak/2K24/LearnBackendDevelopment/CogDemo/demoProject/salesService/src/main/java/org/cogesak/kafka/dto/salesEvent.java
+/home/esak/2K24/LearnBackendDevelopment/CogDemo/demoProject/salesService/src/main/java/org/cogesak/kafka/SalesProducerApplication.java
+/home/esak/2K24/LearnBackendDevelopment/CogDemo/demoProject/salesService/src/main/java/org/cogesak/kafka/datagenerator/baseSales.java
+/home/esak/2K24/LearnBackendDevelopment/CogDemo/demoProject/salesService/src/main/java/org/cogesak/kafka/Producer/SalesProducer.java
+/home/esak/2K24/LearnBackendDevelopment/CogDemo/demoProject/salesService/src/main/java/org/cogesak/kafka/datagenerator/SalesGenerator.java
+/home/esak/2K24/LearnBackendDevelopment/CogDemo/demoProject/salesService/src/main/java/org/cogesak/kafka/controller/SalesController.java

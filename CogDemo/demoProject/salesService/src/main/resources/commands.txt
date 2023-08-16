@@ -1,0 +1,4 @@
+curl -i \
+-d '{"status":"start"}' \
+-H "Content-Type: application/json" \
+-X POST http://localhost:9096/v1/sales

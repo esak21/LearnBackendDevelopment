@@ -51,6 +51,14 @@ mvn compile exec:java -Dexec.mainClass=org.example.coffeeOrderCoffeeOrderProduce
 
 mvn compile exec:java -Dexec.mainClass=com.bookapp.example.booksproducer.BooksproducerApplication
 
+Start the Producer
+curl -i \
+-d '{"status":"start"}' \
+-H "Content-Type: application/json" \
+-X POST http://localhost:9096/v1/book-orders
+
+
+
 Control Center Login 
 http://localhost:9021/
 

@@ -1,19 +1,19 @@
 {
-  "name": "elasticsearch-sink",
+  "name": "elasticsearch-sink-2",
   "config": {
     "connector.class": "io.confluent.connect.elasticsearch.ElasticsearchSinkConnector",
     "tasks.max": "1",
     "topics": "books-events-1A-example",
     "key.ignore": "true",
     "schema.ignore": "true",
-    "connection.url": "http://44.202.46.169:9200",
+    "connection.url": "http://elasticsearch:9200",
     "type.name": "_doc",
     "name": "elasticsearch-sink",
     "key.converter": "org.apache.kafka.connect.converters.IntegerConverter",
     "key.converter.schemas.enable": "false",
-   "value.converter": "io.confluent.connect.avro.AvroConverter",
+    "value.converter": "io.confluent.connect.avro.AvroConverter",
     "value.converter.schemas.enable": "true",
-    "value.converter.schema.registry.url": "http://172.26.0.2:8081",
+    "value.converter.schema.registry.url": "http://schema-registry:8081",
     "transforms": "insertTS,formatTS",
     "transforms.insertTS.type": "org.apache.kafka.connect.transforms.InsertField\$Value",
     "transforms.insertTS.timestamp.field": "messageTS",
@@ -23,3 +23,5 @@
     "transforms.formatTS.target.type": "string"
   }
 }
+
+
