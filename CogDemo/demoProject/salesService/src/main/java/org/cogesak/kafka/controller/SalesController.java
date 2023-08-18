@@ -40,7 +40,7 @@ public class SalesController {
             try {
             Sales salesavrodata = salesService.buildSalesAVroData(sales);
             salesProducer.sendSalesAvroProducer(salesavrodata);
-            TimeUnit.SECONDS.sleep(20);
+            TimeUnit.SECONDS.sleep(10);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

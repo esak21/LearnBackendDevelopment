@@ -30,11 +30,11 @@ echo "Maven Installation Completed"
 echo "---------------------------------"
 
 
-mkdir -p ~/projects
+
 
 sudo yum install git -y 
 
-
+mkdir -p ~/projects
 cd ~/projects
 
 

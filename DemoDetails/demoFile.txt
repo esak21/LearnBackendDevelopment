@@ -1,6 +1,6 @@
 Create an EC2 Instance 
 
-SSh 22 TCP 80 , 3030 5601 8081 8085 8086 9200 
+SSh 22 TCP 80 , 3030 5601 8081 8085 8086 9200 9021 54321 
 Create Key Pair 
 
 Login to the Machine 

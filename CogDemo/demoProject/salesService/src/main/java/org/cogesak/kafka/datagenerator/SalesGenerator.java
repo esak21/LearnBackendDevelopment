@@ -17,7 +17,7 @@ public class SalesGenerator {
     }
 
     public void mySalesGenerator() {
-        String fileLocation = "~/projects/LearnBackendDevelopment/CogDemo/demoProject/salesService/src/main/resources/train.json";
+        String fileLocation = "/home/ec2-user/projects/LearnBackendDevelopment/CogDemo/demoProject/salesService/src/main/resources/train.json";
 
         final ObjectMapper salesmapper ;
 

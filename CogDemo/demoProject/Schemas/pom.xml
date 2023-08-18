@@ -51,7 +51,6 @@
 
                             </imports>
                             <enableDecimalLogicalType>true</enableDecimalLogicalType>
-                            <customConversions>org.apache.avro.Conversions$UUIDConversion</customConversions>
                         </configuration>
                     </execution>
                 </executions>

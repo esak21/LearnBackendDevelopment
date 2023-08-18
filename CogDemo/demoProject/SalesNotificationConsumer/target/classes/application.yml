@@ -2,7 +2,8 @@ server:
   port: 9098
 
 slack:
-  webhook: https://hooks.slack.com/services/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
+  webhook: https://hooks.slack.com/services/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
+
 spring:
   profiles:
     active: local

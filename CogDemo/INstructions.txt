@@ -53,10 +53,8 @@ mvn compile exec:java -Dexec.mainClass=com.bookapp.example.booksproducer.Bookspr
 
 
 mvn package at main Directory 
+mvn install at main Directory 
 
-mvn compile exec:java -Dexec.mainClass=org.example.coffeeOrderCoffeeOrderProducerApplication 
-
-mvn package at main Directory 
 mvn compile exec:java -Dexec.mainClass=org.cogesak.kafka.SalesProducerApplication
 mvn compile exec:java -Dexec.mainClass=org.cogesak.kafka.SalesOrderConsumerApplication
 
@@ -71,7 +69,7 @@ Start the Producer
 curl -i \
 -d '{"status":"start"}' \
 -H "Content-Type: application/json" \
--X POST http://localhost:9096/v1/book-orders
+-X POST http://localhost:9096/v1/sales
 
 
 
