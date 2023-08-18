@@ -1,0 +1,86 @@
+Create an EC2 Instance 
+
+SSh 22 TCP 80 , 3030 5601 8081 8085 8086 9200 9021 54321 
+Create Key Pair 
+
+Login to the Machine 
+
+sudo yum update -y 
+sudo yum install -y docker 
+sudo service docker start 
+sudo usermod -a -G docker ec2-user
+
+sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+
+
+Install Java17 in AWS Linux 
+sudo dnf install java-17-amazon-corretto-devel -y 
+INstall maven 
+sudo wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
+sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
+sudo yum install -y apache-maven
+mvn –version
+--------------------------------------------------------------------------------
+sudo yum install git -y 
+git clone -b kafka_conenct https://github.com/esak21/LearnBackendDevelopment.git
+-------------------------------------------------------
+
+
+
+Logout and Login Back to same Ec2 
+docker info 
+
+check docker is installed 
+
+docker run -d -p 80:5000 training/webapp:latest python app.py 
+docker run -d -p 80:80 --name nginx nginx 
+
+
+
+
+
+docker-compose version
+
+/usr/lib/jvm/jdk-17/
+sudo nano /etc/environment export JAVA_HOME=/usr/lib/jvm/jdk-17/
+
+
+mvn compile exec:java -Dexec.mainClass=org.example.coffeeOrderCoffeeOrderProducerApplication 
+
+
+mvn compile exec:java -Dexec.mainClass=com.bookapp.example.booksproducer.BooksproducerApplication
+
+
+mvn package at main Directory 
+
+mvn compile exec:java -Dexec.mainClass=org.example.coffeeOrderCoffeeOrderProducerApplication 
+
+mvn package at main Directory 
+mvn compile exec:java -Dexec.mainClass=org.cogesak.kafka.SalesProducerApplication
+mvn compile exec:java -Dexec.mainClass=org.cogesak.kafka.SalesOrderConsumerApplication
+
+
+
+https://hooks.slack.com/services/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
+
+
+
+
+Start the Producer
+curl -i \
+-d '{"status":"start"}' \
+-H "Content-Type: application/json" \
+-X POST http://localhost:9096/v1/book-orders
+
+
+
+Control Center Login 
+http://localhost:9021/
+
+confluent-hub install confluentinc/kafka-connect-aws-lambda:2.0.6
+confluent-hub install confluentinc/kafka-connect-s3:10.5.1
+confluent-hub install confluentinc/kafka-connect-elasticsearch:14.0.6
+
+---------------------------------------------------------
+

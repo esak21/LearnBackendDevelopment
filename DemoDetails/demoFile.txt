@@ -51,6 +51,22 @@ mvn compile exec:java -Dexec.mainClass=org.example.coffeeOrderCoffeeOrderProduce
 
 mvn compile exec:java -Dexec.mainClass=com.bookapp.example.booksproducer.BooksproducerApplication
 
+
+mvn package at main Directory 
+
+mvn compile exec:java -Dexec.mainClass=org.example.coffeeOrderCoffeeOrderProducerApplication 
+
+mvn package at main Directory 
+mvn compile exec:java -Dexec.mainClass=org.cogesak.kafka.SalesProducerApplication
+mvn compile exec:java -Dexec.mainClass=org.cogesak.kafka.SalesOrderConsumerApplication
+
+
+
+https://hooks.slack.com/services/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
+
+
+
+
 Start the Producer
 curl -i \
 -d '{"status":"start"}' \

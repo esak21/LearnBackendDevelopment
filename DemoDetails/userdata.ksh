@@ -30,8 +30,24 @@ echo "Maven Installation Completed"
 echo "---------------------------------"
 
 sudo yum install git -y 
+mkdir -p ~/projects
+cd ~/projects
 git clone -b kafka_conenct https://github.com/esak21/LearnBackendDevelopment.git
 
 echo "---------------------------------"
 echo "GIT Installation Completed"
+echo "---------------------------------"
+
+
+
+cp ~/projects/LearnBackendDevelopment/DemoDetails/ConfluentdockerCompose.yml  ~/projects/LearnBackendDevelopment/DemoDetails/docker-compose.yml
+
+cd ~/projects/LearnBackendDevelopment/DemoDetails/
+
+sudo docker-compose up -d 
+
+
+
+echo "---------------------------------"
+echo "Docker compose Up completed
 echo "---------------------------------"
