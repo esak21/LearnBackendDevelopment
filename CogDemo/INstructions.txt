@@ -82,3 +82,41 @@ confluent-hub install confluentinc/kafka-connect-elasticsearch:14.0.6
 
 ---------------------------------------------------------
 
+Kafka Slides 
+
+ Replace Paytm Slide with Slack or any other Real Time 
+ 
+ Traditional Messaging System - For decoupling Architecture 
+ 
+ broker add Example of letter box 
+
+ Zookeeper - deprecation with Star 
+ 
+ MEssage - 
+ 
+Topic Expiration  - Whats App Expiration Message as example 
+
+Partitions - if we addd any new Parttions what happens to the Existing Messages ?
+
+OFFSET - SHIP TO EAST TO WEST - Consumer wise Checkpoints  Failure in East - 
+
+Serialization - Producer to Tpoic they have serioalize the data 
+
+Based on the imp of data we can define the retries 
+retries will be delayed 
+RETRIES = SLA of a RECORD in TOPIC 
+
+ADD ACKNOELEDGE SLIDE 
+ack = 0 
+ack = 1 
+
+
+2 consumers cant be read from single partitons 
+
+Schema REgistry 
+
+Data across network will be huge 
+low latency 
+high cost 
+High Availablilty 
+
